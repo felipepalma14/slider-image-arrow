@@ -1,7 +1,6 @@
 package com.ninestack.sampleslider;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,7 @@ public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample
 
     private List<String> photoList;
 
-    public SliderAdapterExample(List<String> photoList) {
+    SliderAdapterExample(List<String> photoList) {
         this.photoList = photoList;
     }
 

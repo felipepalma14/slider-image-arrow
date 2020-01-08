@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,10 +23,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ScrollingActivity extends AppCompatActivity {
     ViewPager _pager;
@@ -36,14 +36,14 @@ public class ScrollingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
 
-        _pager = (ViewPager) findViewById(R.id.pager);
-        leftBtn = (ImageButton)findViewById(R.id.left_nav);
-        rightBtn =  (ImageButton) findViewById(R.id.right_nav);
-        myList = (RecyclerView) findViewById(R.id.recyclerviewFrag);
+        _pager = findViewById(R.id.pager);
+        leftBtn = findViewById(R.id.left_nav);
+        rightBtn = findViewById(R.id.right_nav);
+        myList = findViewById(R.id.recyclerviewFrag);
         _images = Arrays.asList( getResources().getStringArray(R.array.user_photos));
         GalleryPagerAdapter _adapter = new GalleryPagerAdapter( this);
         _pager.setAdapter(_adapter);
@@ -143,12 +143,13 @@ public class ScrollingActivity extends AppCompatActivity {
         }
 
         @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == ((LinearLayout) object);
+        public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
+            return view == object;
         }
 
+        @NonNull
         @Override
-        public Object instantiateItem(ViewGroup container, final int position) {
+        public Object instantiateItem(@NonNull ViewGroup container, final int position) {
             View itemView = _inflater.inflate(R.layout.pager_gallery_item, container, false);
             container.addView(itemView);
 
@@ -200,7 +201,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
             //  _thumbnails.addView(thumbView);
 
-            final ImageView imageView = (ImageView) itemView.findViewById(R.id.image);
+            final ImageView imageView = itemView.findViewById(R.id.image);
             /*final ImageView myCustomIcon = (ImageView) LayoutInflater.
                     from(tabL.getContext()).inflate(R.layout.my_custom_tab, null);
             myCustomIcon.setLayoutParams(params);
@@ -219,7 +220,7 @@ public class ScrollingActivity extends AppCompatActivity {
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
+        public void destroyItem(ViewGroup container, int position, @NonNull Object object) {
             container.removeView((LinearLayout) object);
         }
     }
@@ -235,7 +236,7 @@ public class ScrollingActivity extends AppCompatActivity {
         public void onClick(View v) {
             // on selecting grid view image
             // launch full screen activity
-            ArrayList<String> list = new ArrayList<>( _images);
+            //ArrayList<String> list = new ArrayList<>( _images);
            /* Intent i = new Intent(BoligerDetailsActivity.this, FullScreenViewActivity.class);
             i.putExtra("position", _postion);
             i.putStringArrayListExtra("stock_list",list);
@@ -251,7 +252,7 @@ public class ScrollingActivity extends AppCompatActivity {
             ImageView imgCards;
             MyViewHolder(View view) {
                 super(view);
-                imgCards = (ImageView) view.findViewById(R.id.imgDisplay);
+                imgCards = view.findViewById(R.id.imgDisplay);
             }
         }
 
@@ -259,6 +260,7 @@ public class ScrollingActivity extends AppCompatActivity {
             this.horizontalList = horizontalList;
         }
 
+        @NonNull
         @Override
         public HorizontalAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View itemView = LayoutInflater.from(parent.getContext())
