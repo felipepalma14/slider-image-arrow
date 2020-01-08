@@ -32,4 +32,6 @@ dependencies {
 
     debugImplementation project(':sliderimagearrow')
     releaseImplementation project(':sliderimagearrow')
+
+    implementation 'com.github.Zeuskartik:MediaSliderView:1.1'
 }

@@ -1,11 +1,13 @@
 package com.felipepalma14.sliderimagearrow.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +15,6 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.felipepalma14.sliderimagearrow.R;
-import com.felipepalma14.sliderimagearrow.adapter.GalleryPagerAdapter;
 import com.felipepalma14.sliderimagearrow.adapter.HorizontalAdapter;
 
 import java.util.Arrays;
@@ -29,6 +30,7 @@ public class SliderView extends FrameLayout {
     SliderPager mSliderPager;
     ImageButton leftBtn,rightBtn;
     RecyclerView myList;
+    TextView number;
     private List<String> _images;
     private PagerAdapter adapter;
 
@@ -59,6 +61,7 @@ public class SliderView extends FrameLayout {
         leftBtn  = wrapperView.findViewById(R.id.left_nav);
         rightBtn = wrapperView.findViewById(R.id.right_nav);
         myList   = wrapperView.findViewById(R.id.recyclerviewFrag);
+        number   = wrapperView.findViewById(R.id.number);
         _images  = Arrays.asList( getResources().getStringArray(R.array.user_photos));
     }
 
@@ -78,6 +81,8 @@ public class SliderView extends FrameLayout {
         myList.setLayoutManager(horizontalLayoutManagaer);
         myList.setAdapter(horizontalAdapter);
         horizontalAdapter.notifyDataSetChanged();
+
+        updateImageNumber();
     }
 
     private void setupListeners(){
@@ -92,6 +97,7 @@ public class SliderView extends FrameLayout {
                 } else if (tab == 0) {
                     mSliderPager.setCurrentItem(tab);
                 }
+                updateImageNumber();
             }
         });
 
@@ -102,6 +108,7 @@ public class SliderView extends FrameLayout {
                 int tab = mSliderPager.getCurrentItem();
                 tab++;
                 mSliderPager.setCurrentItem(tab);
+                updateImageNumber();
             }
         });
         // MenuScroll.setSmoothScrollingEnabled(true);
@@ -123,6 +130,7 @@ public class SliderView extends FrameLayout {
                 MenuScroll.smoothScrollTo((position*300)+(position+1)*4, 0);
                 */
                 myList.scrollToPosition(position);
+                updateImageNumber();
             }
 
             @Override
@@ -132,6 +140,11 @@ public class SliderView extends FrameLayout {
         });
     }
 
+    @SuppressLint("SetTextI18n")
+    private void updateImageNumber(){
+        int currentItem = mSliderPager.getCurrentItem() +1;
+        number.setText(currentItem+"/"+ _images.size());
+    }
     public ViewPager getPager() {
         return mSliderPager;
     }

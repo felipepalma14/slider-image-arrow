@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorAccent">#ccb3ff</color>
+    <color name="blackDark">#1d1c1c</color>
 </resources>
