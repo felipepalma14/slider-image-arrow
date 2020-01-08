@@ -5,7 +5,7 @@ It uses simple viewpager and recyclerview to display images in collapsible toolb
 This library supports AndroidX
 
 # DEMO
-![Alt text](https://github.com/sunnag7/SampleSlider/blob/master/ezgif-3-dcc6e2a1a6.gif?raw=true "Working")
+![Alt text](https://github.com/sunnag7/SampleSlider/blob/master/demo.gif?raw=true "Working")
 
 #Integration Guide
 ```xml
@@ -102,4 +102,8 @@ This library supports AndroidX
     
         }
     }
+```
+# Change thumbnails lines color 
+```xml
+    <color name="colorAccent">#ccb3ff</color>
 ```
