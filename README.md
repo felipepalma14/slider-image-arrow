@@ -4,10 +4,30 @@ It uses simple viewpager and recyclerview to display images in collapsible toolb
 
 This library supports AndroidX
 
+[![](https://jitpack.io/v/felipepalma14/slider-image-arrow.svg)](https://jitpack.io/#felipepalma14/slider-image-arrow)
+
 # DEMO
 ![Alt text](https://github.com/felipepalma14/slider-image-arrow/blob/master/demo.gif?raw=true "Working")
 
-#Integration Guide
+
+# Add in your Android Project
+* Gradle
+#### Step 1.  Add it in your root build.gradle at the end of repositories:
+
+    allprojects {
+            repositories {
+                ...
+                maven { url 'https://jitpack.io' }
+            }
+        }
+
+#### Step 2. Add the dependency
+
+    dependencies {
+	        implementation 'com.github.felipepalma14:slider-image-arrow:Tag'
+	}
+	
+# Integration Guide
 ```xml
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
