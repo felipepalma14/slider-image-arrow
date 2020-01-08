@@ -5,7 +5,7 @@ It uses simple viewpager and recyclerview to display images in collapsible toolb
 This library supports AndroidX
 
 # DEMO
-![Alt text](https://github.com/sunnag7/SampleSlider/blob/master/demo.gif?raw=true "Working")
+![Alt text](https://github.com/felipepalma14/slider-image-arrow/blob/master/demo.gif?raw=true "Working")
 
 #Integration Guide
 ```xml
