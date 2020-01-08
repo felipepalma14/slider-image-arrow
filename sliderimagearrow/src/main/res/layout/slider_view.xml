@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <com.felipepalma14.sliderimagearrow.view.SliderPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:background="@drawable/placeholder"
+            android:scaleType="fitXY"
+            android:clipToPadding="false"/>
+
+        <ImageButton
+            android:id="@+id/left_nav"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:background="#80ffffff"
+            app:srcCompat="@drawable/arrow_right"
+            android:padding="5dp"
+            android:layout_marginTop="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+        <ImageButton
+            android:id="@+id/right_nav"
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:background="#80ffffff"
+            android:scaleType="centerInside"
+            android:padding="5dp"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/arrow_left"
+            android:layout_alignTop="@+id/left_nav"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            tools:ignore="ContentDescription,RtlHardcoded" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewFrag"
+            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pager"
+            android:paddingTop="1dp"/>
+
+    </RelativeLayout>
+</FrameLayout>

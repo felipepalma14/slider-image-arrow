@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SampleSlider.iml" filepath="$PROJECT_DIR$/SampleSlider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ArrowSlider.iml" filepath="$PROJECT_DIR$/ArrowSlider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sliderimagearrow/sliderimagearrow.iml" filepath="$PROJECT_DIR$/sliderimagearrow/sliderimagearrow.iml" />
     </modules>
   </component>
 </project>

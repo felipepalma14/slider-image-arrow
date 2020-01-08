@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SliderImageArrow</string>
+    <string-array name="user_photos">
+        <item>https://carros2018.com.br/wp-content/uploads/2018/04/Screenshot_6-3.png</item>
+        <item>https://cdn.autopapo.com.br/box/uploads/2018/07/18105844/fiat.argo_.2019.2.jpg</item>
+        <item>https://i.ytimg.com/vi/CxaoCZBF4Tk/hqdefault.jpg</item>
+        <item>https://carros2019.com.br/wp-content/uploads/2018/05/Fiat-Argo-2018-2.jpg</item>
+        <item>https://img.volanty.com/thumb/inspecao/4986373593366528/20190608/1559994474921.jpg</item>
+        <item>http://vbtuning.com.br/portfolio/Fiat-Argo/antes.jpg</item>
+        <item>https://cdn.carsp.com.br/upload/imgcache/c024cc4cd4227834366e13ae696e0bee.jpg</item>
+    </string-array>
+</resources>

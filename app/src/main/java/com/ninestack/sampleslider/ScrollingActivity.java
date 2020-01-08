@@ -1,30 +1,27 @@
 package com.ninestack.sampleslider;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import com.bumptech.glide.Glide;
 
-import junit.framework.Assert;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +45,6 @@ public class ScrollingActivity extends AppCompatActivity {
         rightBtn =  (ImageButton) findViewById(R.id.right_nav);
         myList = (RecyclerView) findViewById(R.id.recyclerviewFrag);
         _images = Arrays.asList( getResources().getStringArray(R.array.user_photos));
-        Assert.assertNotNull(_images);
         GalleryPagerAdapter _adapter = new GalleryPagerAdapter( this);
         _pager.setAdapter(_adapter);
 
@@ -60,6 +56,7 @@ public class ScrollingActivity extends AppCompatActivity {
         myList.setLayoutManager(horizontalLayoutManagaer);
         myList.setAdapter(horizontalAdapter);
         horizontalAdapter.notifyDataSetChanged();
+
         leftBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
