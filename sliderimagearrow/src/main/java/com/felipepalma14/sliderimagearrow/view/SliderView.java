@@ -70,19 +70,34 @@ public class SliderView extends FrameLayout {
         setupListeners();
 
     }
+    public void setSliderAdapter(final PagerAdapter adapter, boolean withThumbnail){
+        this.adapter = adapter;
+        mSliderPager.setAdapter(adapter);
+        mSliderPager.setOffscreenPageLimit(4); // how many images to load into memory
+        this.adapter.notifyDataSetChanged();
+        if(withThumbnail)
+            setupThumbnailRecycler();
+
+        updateImageNumber();
+    }
     public void setSliderAdapter(final PagerAdapter adapter){
         this.adapter = adapter;
         mSliderPager.setAdapter(adapter);
         mSliderPager.setOffscreenPageLimit(4); // how many images to load into memory
         this.adapter.notifyDataSetChanged();
+        if(_images.size() > 1)
+        setupThumbnailRecycler();
+
+        updateImageNumber();
+    }
+
+    private void setupThumbnailRecycler(){
         HorizontalAdapter horizontalAdapter = new HorizontalAdapter(this);
         LinearLayoutManager horizontalLayoutManagaer
                 = new LinearLayoutManager(mSliderPager.getContext(), LinearLayoutManager.HORIZONTAL, false);
         myList.setLayoutManager(horizontalLayoutManagaer);
         myList.setAdapter(horizontalAdapter);
         horizontalAdapter.notifyDataSetChanged();
-
-        updateImageNumber();
     }
 
     private void setupListeners(){
