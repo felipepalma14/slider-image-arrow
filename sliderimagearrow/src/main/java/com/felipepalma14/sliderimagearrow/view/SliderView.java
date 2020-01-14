@@ -71,6 +71,7 @@ public class SliderView extends FrameLayout {
 
     }
     public void setSliderAdapter(final PagerAdapter adapter, boolean withThumbnail){
+        updateImageNumber();
         this.adapter = adapter;
         mSliderPager.setAdapter(adapter);
         mSliderPager.setOffscreenPageLimit(4); // how many images to load into memory
@@ -78,9 +79,9 @@ public class SliderView extends FrameLayout {
         if(withThumbnail)
             setupThumbnailRecycler();
 
-        updateImageNumber();
     }
     public void setSliderAdapter(final PagerAdapter adapter){
+        updateImageNumber();
         this.adapter = adapter;
         mSliderPager.setAdapter(adapter);
         mSliderPager.setOffscreenPageLimit(4); // how many images to load into memory
@@ -88,7 +89,6 @@ public class SliderView extends FrameLayout {
         if(_images.size() > 1)
         setupThumbnailRecycler();
 
-        updateImageNumber();
     }
 
     private void setupThumbnailRecycler(){
@@ -173,6 +173,7 @@ public class SliderView extends FrameLayout {
     }
 
     public void setImages(List<String> _images) {
+        updateImageNumber();
         this._images = _images;
     }
 }
