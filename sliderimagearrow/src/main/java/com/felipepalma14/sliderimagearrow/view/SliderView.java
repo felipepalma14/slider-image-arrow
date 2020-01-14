@@ -16,8 +16,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.felipepalma14.sliderimagearrow.R;
 import com.felipepalma14.sliderimagearrow.adapter.HorizontalAdapter;
+import com.felipepalma14.sliderimagearrow.adapter.SliderViewAdapter;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,7 +63,6 @@ public class SliderView extends FrameLayout {
         rightBtn = wrapperView.findViewById(R.id.right_nav);
         myList   = wrapperView.findViewById(R.id.recyclerviewFrag);
         number   = wrapperView.findViewById(R.id.number);
-        _images  = Arrays.asList( getResources().getStringArray(R.array.user_photos));
     }
 
     private void setupSlideView(Context context) {
@@ -70,7 +70,8 @@ public class SliderView extends FrameLayout {
         setupListeners();
 
     }
-    public void setSliderAdapter(final PagerAdapter adapter, boolean withThumbnail){
+    public void setSliderAdapter(final SliderViewAdapter adapter, boolean withThumbnail){
+        this._images = adapter.getImages();
         updateImageNumber();
         this.adapter = adapter;
         mSliderPager.setAdapter(adapter);
@@ -80,7 +81,8 @@ public class SliderView extends FrameLayout {
             setupThumbnailRecycler();
 
     }
-    public void setSliderAdapter(final PagerAdapter adapter){
+    public void setSliderAdapter(final SliderViewAdapter adapter){
+        this._images = adapter.getImages();
         updateImageNumber();
         this.adapter = adapter;
         mSliderPager.setAdapter(adapter);
@@ -157,8 +159,10 @@ public class SliderView extends FrameLayout {
 
     @SuppressLint("SetTextI18n")
     private void updateImageNumber(){
-        int currentItem = mSliderPager.getCurrentItem() +1;
-        number.setText(currentItem+"/"+ _images.size());
+        if(_images.size() >= 1) {
+            int currentItem = mSliderPager.getCurrentItem() + 1;
+            number.setText(currentItem + "/" + _images.size());
+        }
     }
     public ViewPager getPager() {
         return mSliderPager;

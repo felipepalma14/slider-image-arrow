@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -15,6 +16,11 @@ import java.util.Queue;
  * Empresa: Instituto Triad
  */
 public abstract class SliderViewAdapter <VH extends SliderViewAdapter.ViewHolder> extends PagerAdapter {
+    protected List<String> imagesURL;
+
+    public SliderViewAdapter(List<String> imagesURL){
+        this.imagesURL = imagesURL;
+    }
 
     //Default View holder class
     public static abstract class ViewHolder {
@@ -26,6 +32,10 @@ public abstract class SliderViewAdapter <VH extends SliderViewAdapter.ViewHolder
     }
 
     private Queue<VH> destroyedItems = new LinkedList<>();
+
+    public List<String> getImages(){
+        return this.imagesURL;
+    }
 
     @NonNull
     @Override

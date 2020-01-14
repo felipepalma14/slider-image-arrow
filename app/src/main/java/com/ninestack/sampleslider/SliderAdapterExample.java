@@ -22,15 +22,14 @@ import java.util.List;
  */
 public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample.SliderAdapterViewHolder> {
 
-    private List<String> photoList;
     private OnItemClickListener listener;
 
     SliderAdapterExample(List<String> photoList) {
-        this.photoList = photoList;
+        super(photoList);
     }
 
     SliderAdapterExample(List<String> photoList, OnItemClickListener listener) {
-        this.photoList = photoList;
+        super(photoList);
         this.listener = listener;
     }
 
@@ -44,16 +43,16 @@ public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample
     public void onBindViewHolder(SliderAdapterViewHolder viewHolder, int position) {
 
         Glide.with(viewHolder.itemView)
-                .load(photoList.get(position))
+                .load(imagesURL.get(position))
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(viewHolder.backgroundImageView);
-        viewHolder.bind(photoList.get(position), listener);
+        viewHolder.bind(imagesURL.get(position), listener);
     }
 
     @Override
     public int getCount() {
-        return photoList.size();
+        return imagesURL.size();
     }
 
     public void setOnImageClickListener(OnItemClickListener listener){
@@ -78,8 +77,8 @@ public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample
                     if(listener!=null) {
                         listener.onItemClick(item);
                         Intent intent = new Intent(itemView.getContext(),MediaSliderSampleActivity.class);
-                        intent.putStringArrayListExtra("LIST_ITEMS",new ArrayList<String>(photoList));
-                        intent.putExtra("ITEM_SELECTED", photoList.indexOf(item));
+                        intent.putStringArrayListExtra("LIST_ITEMS",new ArrayList<String>(imagesURL));
+                        intent.putExtra("ITEM_SELECTED", imagesURL.indexOf(item));
                         itemView.getContext().startActivity(intent);
                     }
                 }

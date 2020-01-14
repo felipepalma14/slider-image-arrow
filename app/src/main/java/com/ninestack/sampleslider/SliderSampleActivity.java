@@ -30,7 +30,7 @@ public class SliderSampleActivity extends AppCompatActivity {
 
             }
         });
-        sliderView.setSliderAdapter(adapter,false);
+        sliderView.setSliderAdapter(adapter);
 
 
     }
