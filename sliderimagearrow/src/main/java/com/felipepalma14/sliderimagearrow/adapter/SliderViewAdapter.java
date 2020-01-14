@@ -18,10 +18,6 @@ import java.util.Queue;
 public abstract class SliderViewAdapter <VH extends SliderViewAdapter.ViewHolder> extends PagerAdapter {
     protected List<String> imagesURL;
 
-    public SliderViewAdapter(List<String> imagesURL){
-        this.imagesURL = imagesURL;
-    }
-
     //Default View holder class
     public static abstract class ViewHolder {
         public final View itemView;
@@ -80,5 +76,11 @@ public abstract class SliderViewAdapter <VH extends SliderViewAdapter.ViewHolder
      */
     public abstract void onBindViewHolder(VH viewHolder, int position);
 
+    public List<String> getImagesURL() {
+        return imagesURL;
+    }
 
+    public void setImagesURL(List<String> imagesURL) {
+        this.imagesURL = imagesURL;
+    }
 }

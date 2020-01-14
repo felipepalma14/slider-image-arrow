@@ -25,11 +25,11 @@ public class SliderAdapterExample extends SliderViewAdapter<SliderAdapterExample
     private OnItemClickListener listener;
 
     SliderAdapterExample(List<String> photoList) {
-        super(photoList);
+        this.imagesURL = photoList;
     }
 
     SliderAdapterExample(List<String> photoList, OnItemClickListener listener) {
-        super(photoList);
+        this.imagesURL = photoList;
         this.listener = listener;
     }
 
