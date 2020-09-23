@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ArrowSlider.iml" filepath="$PROJECT_DIR$/ArrowSlider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/slider-image-arrow.iml" filepath="$PROJECT_DIR$/.idea/modules/slider-image-arrow.iml" group="slider-image-arrow" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/slider-image-arrow-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/slider-image-arrow-app.iml" group="slider-image-arrow/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sliderimagearrow/slider-image-arrow-sliderimagearrow.iml" filepath="$PROJECT_DIR$/.idea/modules/sliderimagearrow/slider-image-arrow-sliderimagearrow.iml" group="slider-image-arrow/sliderimagearrow" />
       <module fileurl="file://$PROJECT_DIR$/sliderimagearrow/sliderimagearrow.iml" filepath="$PROJECT_DIR$/sliderimagearrow/sliderimagearrow.iml" />
     </modules>
   </component>
